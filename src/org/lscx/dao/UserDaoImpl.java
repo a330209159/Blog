@@ -4,6 +4,7 @@ import org.lscx.pojo.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDaoImpl implements UserDao{
@@ -33,4 +34,25 @@ public class UserDaoImpl implements UserDao{
         return flag;
 
     }
+
+    @Override
+    public User queryByUser_login(String user_login) throws SQLException {
+        User user = null;
+        String sql = "select ID,user_login,user_pass,user_nickname,user_email from users " +
+                "where user_login = ?";
+        this.pstmt = this.conn.prepareStatement(sql);
+        pstmt.setString(1,user_login);
+        ResultSet rs = this.pstmt.executeQuery();
+        if(rs.next()){
+            user = new User();
+            user.setID(rs.getInt(1));
+            user.setUser_login(rs.getString(2));
+            user.setUser_pass(rs.getString(3));
+            user.setUser_nickname(rs.getString(4));
+            user.setUser_email(rs.getString(5));
+        }
+        this.pstmt.close();
+        return user;
+    }
+
 }

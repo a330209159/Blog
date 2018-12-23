@@ -31,4 +31,18 @@ public class UserService implements UserDao {
 
         return flag;
     }
+
+    @Override
+    public User queryByUser_login(String user_login) throws SQLException {
+        User user = null;
+        try{
+            user = this.dao.queryByUser_login(user_login);
+        }catch (Exception e){
+            throw e;
+        } finally {
+            this.dbconn.close();
+        }
+        return user;
+
+    }
 }

@@ -13,7 +13,7 @@ public class User implements Serializable {
         return ID;
     }
 
-    private void setID(int ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 
