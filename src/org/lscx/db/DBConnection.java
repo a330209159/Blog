@@ -4,14 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnectionExample {
+public class DBConnection {
     private static final String Drvier = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc://";
-    private static final String USER = "damao";
+    private static final String URL = "jdbc:mysql://115.159.52.97:3306/myBlog";
+    private static final String USER = "blog";
     private static final String PASSWORD = "123456";
-    private Connection conn = null;
+    private Connection conn;
 
-    public DBConnectionExample() throws Exception {
+    public DBConnection() throws Exception {
         try{
             Class.forName(Drvier);
             this.conn = DriverManager.getConnection(URL,USER,PASSWORD);
