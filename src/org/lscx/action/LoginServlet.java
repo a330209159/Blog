@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
-        urlPatterns = {"/login.do"},
+        urlPatterns = {"/login"},
         name = "loginServlet"
 )
+
 public class LoginServlet extends HttpServlet {
 
     @Override
@@ -26,13 +27,13 @@ public class LoginServlet extends HttpServlet {
         String user_login = req.getParameter("log");
         String user_pass = req.getParameter("pwd");
         String path = null;
+        boolean flag = false;
         try{
             User user = DAOFactory.getUserDaoInstance().queryByUser_login(user_login);
             if(user != null){
                 if(user_pass.equals(user.getUser_pass())){
-                    req.getSession().setAttribute("login_user",user_login);
-                    req.getSession().setAttribute("ID",user.getID());
-                    path = "index.jsp";
+                    req.getSession().setAttribute("user",user);
+                    flag = true;
                 }else {
                     req.setAttribute("states", "用户名或密码错误！");
                     path = "login.jsp";
@@ -44,7 +45,12 @@ public class LoginServlet extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
-        req.getRequestDispatcher(path).forward(req,resp);
+
+        if(flag) {
+            resp.sendRedirect("admin/index.jsp");
+        }else{
+            req.getRequestDispatcher(path).forward(req, resp);
+        }
 
     }
 }
