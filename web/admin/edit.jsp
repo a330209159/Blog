@@ -13,23 +13,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Meow Blog-写文章</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="${pageContext.request.contextPath }/images/favicon.png" />
+    <link rel="shortcut icon" href="../images/favicon.png" />
 </head>
 <body>
 <div class="container-scroller">
-    <!-- import headers start-->
-    <jsp:include page="../common/header.jsp"/>
-    <!-- import headers end -->
+    <!-- import header start -->
+    <jsp:include page="common/header.jsp"/>
+    <!-- import header end -->
     <div class="container-fluid page-body-wrapper">
 
         <!--import sidebar start-->
-        <jsp:include page="../common/sidebar_edit.jsp"/>
+        <jsp:include page="common/sidebar_edit.jsp"/>
         <!--import sidebar end-->
 
         <div class="main-panel">
@@ -46,16 +46,25 @@
                     </nav>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 grid-margin stretch-card">
+                    <div class="col-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">${status}</h4>
-                                <div class="media">
-                                    <i class="mdi mdi-earth icon-md text-info d-flex align-self-center mr-3"></i>
-                                    <div class="media-body">
-                                        <p class="card-text">您的文章发布/更新失败，请检查相关设置以及数据库连接。</p>
+                                <h4 class="card-title">发表文章</h4>
+
+                                <form class="form-sample" action="post.do" method="post">
+                                    <div class="form-group">
+                                        <label>文章标题</label>
+                                        <input type="text" name="post_title" class="form-control" id="articletitle_" placeholder="请输入文章标题" autocomplete="off" value="${post.post_title}">
                                     </div>
-                                </div>
+                                    <div class="form-group">
+                                        <label>文章内容</label>
+                                        <textarea class="form-control"  name="post_content" id="exampleTextarea1" rows="8" >${post.post_content}</textarea>
+                                    </div>
+                                    <input type="hidden" name="post_author" value="${user.ID}" />
+
+                                    <button type="submit" class="btn btn-gradient-primary mr-6">发表</button>
+                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -78,12 +87,12 @@
 </div>
 <!-- container-scroller -->
 <!-- plugins:js -->
-<script src="${pageContext.request.contextPath }/vendors/js/vendor.bundle.base.js"></script>
-<script src="${pageContext.request.contextPath }/vendors/js/vendor.bundle.addons.js"></script>
+<script src="../vendors/js/vendor.bundle.base.js"></script>
+<script src="../vendors/js/vendor.bundle.addons.js"></script>
 <!-- endinject -->
 <!-- inject:js -->
-<script src="${pageContext.request.contextPath }/js/off-canvas.js"></script>
-<script src="${pageContext.request.contextPath }/js/misc.js"></script>
+<script src="../../js/off-canvas.js"></script>
+<script src="../../js/misc.js"></script>
 <!-- endinject -->
 </body>
 </html>

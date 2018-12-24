@@ -11,6 +11,18 @@ public class Post implements Serializable {
     private String post_content;
     private String post_name;
 
+    @Override
+    public String toString() {
+        return "Post{" +
+                "ID=" + ID +
+                ", post_author=" + post_author +
+                ", post_date='" + post_date + '\'' +
+                ", post_title='" + post_title + '\'' +
+                ", post_content='" + post_content + '\'' +
+                ", post_name='" + post_name + '\'' +
+                '}';
+    }
+
     public int getID() {
         return ID;
     }
@@ -32,7 +44,7 @@ public class Post implements Serializable {
     }
 
     public void setPost_date(String post_date) {
-        this.post_date = post_date;
+        this.post_date = post_date.replace(".0","");
     }
 
     public String getPost_title() {

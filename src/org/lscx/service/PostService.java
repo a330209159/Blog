@@ -5,6 +5,8 @@ import org.lscx.dao.PostDaoImpl;
 import org.lscx.db.DBConnection;
 import org.lscx.pojo.Post;
 
+import java.util.List;
+
 public class PostService implements PostDao {
     private DBConnection dbconn;
     private PostDao dao;
@@ -16,10 +18,55 @@ public class PostService implements PostDao {
 
     @Override
     public boolean addPost(Post post) throws Exception {
-        boolean flag = false;
+        boolean flag;
         try{
             if(true){
                 flag = dao.addPost(post);
+            }
+        }catch (Exception e){
+            throw e;
+        }finally {
+            dbconn.close();
+        }
+        return flag;
+    }
+
+    @Override
+    public List<Post> showAllPosts() throws Exception {
+        List<Post> posts = null;
+        try{
+            if(true){
+                posts = dao.showAllPosts();
+            }
+        }catch (Exception e){
+            throw e;
+        }finally {
+            dbconn.close();
+        }
+        return posts;
+    }
+
+    @Override
+    public Post queryPostByID(int ID) throws Exception {
+        Post post;
+        try{
+            if(true){
+                post = dao.queryPostByID(ID);
+            }
+        }catch (Exception e){
+            throw e;
+        }finally {
+            dbconn.close();
+        }
+        return post;
+    }
+
+    @Override
+    public boolean updatePostByID(Post post, int ID) throws Exception {
+        boolean flag;
+        try{
+            if(true){
+                flag = dao.updatePostByID(post,ID);
             }
         }catch (Exception e){
             throw e;
