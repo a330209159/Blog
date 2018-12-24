@@ -19,7 +19,7 @@ public class PostDaoImpl implements PostDao {
     public boolean addPost(Post post) throws Exception {
         boolean flag = false;
         String sql = "insert into posts(post_author,post_date,post_title,post_content,post_name) " +
-                "values(?,?,?,?,)";
+                "values(?,?,?,?,?)";
         SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         pstmt = this.conn.prepareStatement(sql);
         pstmt.setInt(1,1);

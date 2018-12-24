@@ -14,15 +14,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>MEOW BLOG登陆界面</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="images/favicon.png" />
+    <link rel="shortcut icon" href="${pageContext.request.contextPath }/images/favicon.png" />
 </head>
 
 <body>
@@ -33,11 +33,11 @@
                 <div class="col-lg-4 mx-auto">
                     <div class="auth-form-light text-left p-5">
                         <div class="brand-logo">
-                            <img src="images/logo.svg">
+                            <img src="${pageContext.request.contextPath }/images/logo.svg">
                         </div>
                         <h4>Hello! let's get started</h4>
                         <h6 class="font-weight-light">Sign in to continue.</h6>
-                        <form class="pt-3" action="login" method="post">
+                        <form class="pt-3" action="${pageContext.request.contextPath }/login" method="post">
                             <div class="form-group">
                                 <input name="log" type="username" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
                             </div>
@@ -73,12 +73,12 @@
 </div>
 <!-- container-scroller -->
 <!-- plugins:js -->
-<script src="vendors/js/vendor.bundle.base.js"></script>
-<script src="vendors/js/vendor.bundle.addons.js"></script>
+<script src="${pageContext.request.contextPath }/vendors/js/vendor.bundle.base.js"></script>
+<script src="${pageContext.request.contextPath }/vendors/js/vendor.bundle.addons.js"></script>
 <!-- endinject -->
 <!-- inject:js -->
-<script src="js/off-canvas.js"></script>
-<script src="js/misc.js"></script>
+<script src="${pageContext.request.contextPath }/js/off-canvas.js"></script>
+<script src="${pageContext.request.contextPath }/js/misc.js"></script>
 <!-- endinject -->
 </body>
 </html>
