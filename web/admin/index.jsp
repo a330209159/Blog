@@ -204,21 +204,21 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                        <span class="menu-title">Dashboard</span>
+                    <a class="nav-link" href="index.jsp">
+                        <span class="menu-title">仪表盘</span>
                         <i class="mdi mdi-home menu-icon"></i>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                        <span class="menu-title">UI Elements</span>
+                        <span class="menu-title">文章管理</span>
                         <i class="menu-arrow"></i>
                         <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                     </a>
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="edit.jsp">写文章</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">查看所有文章</a></li>
                         </ul>
                     </div>
                 </li>
