@@ -27,7 +27,7 @@ public class PostDaoImpl implements PostDao {
                 "values(?,?,?,?,?)";
         SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         pstmt = this.conn.prepareStatement(sql);
-        pstmt.setInt(1,1);
+        pstmt.setInt(1,post.getPost_author());
         pstmt.setString(2,fmt.format(new Date()));
         pstmt.setString(3,post.getPost_title());
         pstmt.setString(4,post.getPost_content());
@@ -42,7 +42,8 @@ public class PostDaoImpl implements PostDao {
     @Override
     public List<Post> showAllPosts() throws Exception {
         List<Post> posts = new ArrayList<>();
-        String sql="select * from posts";
+        String sql="select posts.ID,post_author,post_date,post_title,post_content,post_name,user_nickname " +
+                "from posts,users where posts.post_author = users.ID order by posts.ID desc";
         pstmt = this.conn.prepareStatement(sql);
         ResultSet rs = this.pstmt.executeQuery();
         while (rs.next()){
@@ -53,6 +54,7 @@ public class PostDaoImpl implements PostDao {
             post.setPost_title(rs.getString(4));
             post.setPost_content(rs.getString(5));
             post.setPost_name(rs.getString(6));
+            post.setS_post_author(rs.getString(7));
             posts.add(post);
         }
         return posts;
@@ -60,21 +62,13 @@ public class PostDaoImpl implements PostDao {
 
     @Override
     public Post queryPostByID(int ID) throws Exception {
-        Post post = null;
+        Post post;
         String sql = "select * from posts " +
                 "where ID = ?";
         this.pstmt = this.conn.prepareStatement(sql);
         pstmt.setInt(1,ID);
         ResultSet rs = this.pstmt.executeQuery();
-        if(rs.next()){
-            post = new Post();
-            post.setID(rs.getInt(1));
-            post.setPost_author(rs.getInt(2));
-            post.setPost_date(rs.getString(3));
-            post.setPost_title(rs.getString(4));
-            post.setPost_content(rs.getString(5));
-            post.setPost_name(rs.getString(6));
-        }
+        post = rs2Post(rs);
         this.pstmt.close();
         return post;
     }
@@ -95,5 +89,46 @@ public class PostDaoImpl implements PostDao {
 
     }
 
+    @Override
+    public Post queryPostByPost_title(String post_title) throws Exception {
+        Post post;
+        String sql = "select * from posts " +
+                "where post_title = ?";
+        this.pstmt = this.conn.prepareStatement(sql);
+        pstmt.setString(1,post_title);
+        ResultSet rs = this.pstmt.executeQuery();
+        post = rs2Post(rs);
+        this.pstmt.close();
+        return post;
+    }
+
+    @Override
+    public boolean deletePostByID(int ID) throws Exception {
+        boolean flag;
+        String sql="delete from posts where id = ?";
+        pstmt = this.conn.prepareStatement(sql);
+        pstmt.setInt(1,ID);
+        if(pstmt.executeUpdate()>0){
+            flag=true;
+        }else{
+            flag=false;
+        }
+        return flag;
+    }
+
+
+    private Post rs2Post(ResultSet rs) throws SQLException {
+        Post post = new Post();
+        if(rs.next()){
+            post = new Post();
+            post.setID(rs.getInt(1));
+            post.setPost_author(rs.getInt(2));
+            post.setPost_date(rs.getString(3));
+            post.setPost_title(rs.getString(4));
+            post.setPost_content(rs.getString(5));
+            post.setPost_name(rs.getString(6));
+        }
+        return post;
+    }
 
 }

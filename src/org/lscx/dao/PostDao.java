@@ -8,5 +8,7 @@ public interface PostDao {
     List<Post> showAllPosts() throws Exception;
     Post queryPostByID(int ID) throws Exception;
     boolean updatePostByID(Post post,int ID) throws Exception;
+    Post queryPostByPost_title(String post_title) throws Exception;
+    boolean deletePostByID(int ID) throws Exception;
 
 }

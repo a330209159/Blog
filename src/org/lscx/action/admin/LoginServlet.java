@@ -1,4 +1,4 @@
-package org.lscx.action;
+package org.lscx.action.admin;
 
 import org.lscx.factory.DAOFactory;
 import org.lscx.pojo.User;

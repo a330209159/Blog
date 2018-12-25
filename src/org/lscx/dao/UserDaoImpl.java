@@ -37,12 +37,33 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public User queryByUser_login(String user_login) throws SQLException {
-        User user = null;
+        User user;
         String sql = "select ID,user_login,user_pass,user_nickname,user_email from users " +
                 "where user_login = ?";
         this.pstmt = this.conn.prepareStatement(sql);
         pstmt.setString(1,user_login);
         ResultSet rs = this.pstmt.executeQuery();
+        user = rs2User(rs);
+        this.pstmt.close();
+        return user;
+    }
+
+    @Override
+    public User queryUserByID(int ID) throws SQLException {
+        User user;
+        String sql = "select ID,user_login,user_pass,user_nickname,user_email from users " +
+                "where ID=?";
+        this.pstmt = this.conn.prepareStatement(sql);
+        pstmt.setInt(1,ID);
+        ResultSet rs = this.pstmt.executeQuery();
+        user = rs2User(rs);
+        this.pstmt.close();
+        return user;
+    }
+
+
+    private User rs2User(ResultSet rs) throws SQLException {
+        User user = null;
         if(rs.next()){
             user = new User();
             user.setID(rs.getInt(1));
@@ -51,7 +72,6 @@ public class UserDaoImpl implements UserDao{
             user.setUser_nickname(rs.getString(4));
             user.setUser_email(rs.getString(5));
         }
-        this.pstmt.close();
         return user;
     }
 

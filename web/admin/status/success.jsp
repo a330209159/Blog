@@ -51,7 +51,7 @@
                                 <div class="media">
                                     <i class="mdi mdi-earth icon-md text-info d-flex align-self-center mr-3"></i>
                                     <div class="media-body">
-                                        <p class="card-text">您的文章已经成功发布/更新，您可以返回主页查看文章或继续发布/更新文章。</p>
+                                        <p class="card-text">您的文章已经成功发布/更新，您可以返回主页<a href="${pageContext.request.contextPath }/single?id=${post.ID}">查看文章</a>或继续发布/更新文章。</p>
                                     </div>
                                 </div>
                             </div>

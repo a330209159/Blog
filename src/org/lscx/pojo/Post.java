@@ -11,6 +11,16 @@ public class Post implements Serializable {
     private String post_content;
     private String post_name;
 
+    private String s_post_author;
+
+    public String getS_post_author() {
+        return s_post_author;
+    }
+
+    public void setS_post_author(String s_post_author) {
+        this.s_post_author = s_post_author;
+    }
+
     @Override
     public String toString() {
         return "Post{" +

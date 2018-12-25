@@ -75,4 +75,34 @@ public class PostService implements PostDao {
         }
         return flag;
     }
+
+    @Override
+    public Post queryPostByPost_title(String post_title) throws Exception {
+        Post post;
+        try{
+            if(true){
+                post = dao.queryPostByPost_title(post_title);
+            }
+        }catch (Exception e){
+            throw e;
+        }finally {
+            dbconn.close();
+        }
+        return post;
+    }
+
+    @Override
+    public boolean deletePostByID(int ID) throws Exception {
+        boolean flag = false;
+        try{
+            if(true){
+                flag = dao.deletePostByID(ID);
+            }
+        }catch (Exception e){
+            throw e;
+        }finally {
+            dbconn.close();
+        }
+        return flag;
+    }
 }

@@ -1,7 +1,8 @@
-package org.lscx.action;
+package org.lscx.action.admin;
 
 import org.lscx.factory.DAOFactory;
 import org.lscx.pojo.Post;
+import org.lscx.pojo.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,8 +31,9 @@ public class ShowPostsServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         if(posts != null){
-            req.getSession().setAttribute("posts",posts);
+            req.setAttribute("posts",posts);
         }
         req.getRequestDispatcher("display.jsp").forward(req,resp);
     }

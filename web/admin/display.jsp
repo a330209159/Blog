@@ -63,52 +63,12 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/icons/mdi.html">
-                        <span class="menu-title">Icons</span>
-                        <i class="mdi mdi-contacts menu-icon"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/forms/basic_elements.html">
-                        <span class="menu-title">Forms</span>
-                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/charts/chartjs.html">
-                        <span class="menu-title">Charts</span>
-                        <i class="mdi mdi-chart-bar menu-icon"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/tables/basic-table.html">
-                        <span class="menu-title">Tables</span>
-                        <i class="mdi mdi-table-large menu-icon"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-                        <span class="menu-title">Sample Pages</span>
-                        <i class="menu-arrow"></i>
-                        <i class="mdi mdi-medical-bag menu-icon"></i>
-                    </a>
-                    <div class="collapse" id="general-pages">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="../pages/samples/blank-page.html"> Blank Page </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="../pages/samples/login.html"> Login </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="../pages/samples/register.html"> Register </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="../pages/samples/error-404.html"> 404 </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="../pages/samples/error-500.html"> 500 </a></li>
-                        </ul>
-                    </div>
-                </li>
                 <li class="nav-item sidebar-actions">
             <span class="nav-link">
               <div class="border-bottom">
-                <h6 class="font-weight-normal mb-3">Projects</h6>
+                <h6 class="font-weight-normal mb-3">快捷功能</h6>
               </div>
-              <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a project</button>
+              <a href="${pageContext.request.contextPath }/index.do" class="btn btn-block btn-lg btn-gradient-primary mt-4">回到主页</a>
               <div class="mt-4">
                 <div class="border-bottom">
                   <p class="text-secondary">Categories</p>
@@ -132,7 +92,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">文章管理</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">写文章</li>
+                            <li class="breadcrumb-item active" aria-current="page">显示所有文章</li>
                         </ol>
                     </nav>
                 </div>
@@ -163,8 +123,9 @@
                                             文章类别
                                         </th>
                                         <th>
-
+                                            文章操作
                                         </th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -177,7 +138,7 @@
                                                     ${item.post_title}
                                             </td>
                                             <td>
-                                                    ${item.post_author}
+                                                    ${item.s_post_author}
                                             </td>
 
                                             <td>
@@ -188,8 +149,10 @@
                                                     ${item.post_name}
                                             </td>
                                             <td>
-                                                <a href="re-edit.do?id=${item.ID}" class="btn btn-gradient-primary btn-rounded btn-fw btn-sm" >修改</a>
+                                                <a href="re-edit.do?id=${item.ID}" class="btn btn-gradient-primary btn-rounded btn-sm" >修改</a>
+                                                <a href="delete.do?id=${item.ID}" class="btn btn-gradient-danger btn-rounded btn-sm" >删除</a>
                                             </td>
+
                                         </tr>
                                     </c:forEach>
                                     </tbody>

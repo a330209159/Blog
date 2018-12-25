@@ -1,4 +1,4 @@
-package org.lscx.action;
+package org.lscx.action.admin;
 
 import org.lscx.factory.DAOFactory;
 import org.lscx.pojo.Post;
@@ -10,41 +10,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 @WebServlet(
-        urlPatterns = {"/admin/post.do"},
-        name = "postServlet"
-)
-public class PostServlet extends HttpServlet {
+        urlPatterns = {"/admin/update.do"},
+        name = "updatePostServlet"
 
+)
+public class UpdatePostServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+        doPost(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         boolean flag = false;
-        String successMessage = null,failedMessage = null;
+        String post_title = req.getParameter("post_title");
+        String post_content = req.getParameter("post_content");
+        String successMessage = String.format("恭喜,文章【%s】更新成功",post_title);
+        String failedMessage = String.format("抱歉,文章【%s】更新失败",post_title);
+
+        int ID = Integer.valueOf(req.getParameter("ID"));
         Post post = new Post();
+        post.setID(ID);
+        post.setPost_title(post_title);
+        post.setPost_content(post_content);
         try {
-            String post_title = (String) req.getParameter("post_title");
-            String post_content = (String) req.getParameter("post_content");
-            int post_author = Integer.parseInt(req.getParameter("post_author"));
-            successMessage = String.format("恭喜,文章【%s】发布成功",post_title);
-            failedMessage = String.format("抱歉,文章【%s】发布失败",post_title);
-            post.setPost_title(post_title);
-            post.setPost_content(post_content);
-            post.setPost_author(post_author);
-            flag = DAOFactory.getPostDaoInstance().addPost(post);
+            flag = DAOFactory.getPostDaoInstance().updatePostByID(post,ID);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         if(flag){
             req.setAttribute("status",successMessage);
+            req.setAttribute("post",post);
             req.getRequestDispatcher("status/success.jsp").forward(req,resp);
         }else{
             req.setAttribute("status",failedMessage);
             req.getRequestDispatcher("status/failed.jsp").forward(req,resp);
-
         }
     }
 }

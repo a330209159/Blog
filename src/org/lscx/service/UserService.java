@@ -45,4 +45,17 @@ public class UserService implements UserDao {
         return user;
 
     }
+
+    @Override
+    public User queryUserByID(int ID) throws SQLException {
+        User user;
+        try{
+            user = this.dao.queryUserByID(ID);
+        }catch (Exception e){
+            throw e;
+        } finally {
+            this.dbconn.close();
+        }
+        return user;
+    }
 }

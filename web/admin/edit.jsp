@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="../css/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="../images/favicon.png" />
+    <!-- ueditor-->
+    <script type="text/javascript" charset="utf-8" src="ueditor2/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ueditor2/ueditor.all.js"></script>
+    <link href="ueditor2/themes/default/css/ueditor.css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8" src="ueditor2/lang/zh-cn/zh-cn.js"></script>
+    <!-- endueditor -->
 </head>
 <body>
 <div class="container-scroller">
@@ -58,13 +64,15 @@
                                     </div>
                                     <div class="form-group">
                                         <label>文章内容</label>
-                                        <textarea class="form-control"  name="post_content" id="exampleTextarea1" rows="8" >${post.post_content}</textarea>
+                                        <textarea name="post_content" id="editor" rows="12">${post.post_content}</textarea>
                                     </div>
                                     <input type="hidden" name="post_author" value="${user.ID}" />
 
                                     <button type="submit" class="btn btn-gradient-primary mr-6">发表</button>
                                 </form>
-
+                                <script type="text/javascript">
+                                    UE.getEditor('editor',{ initialFrameHeight: 380});
+                                </script>
                             </div>
                         </div>
                     </div>
@@ -91,8 +99,8 @@
 <script src="../vendors/js/vendor.bundle.addons.js"></script>
 <!-- endinject -->
 <!-- inject:js -->
-<script src="../../js/off-canvas.js"></script>
-<script src="../../js/misc.js"></script>
+<script src="../js/off-canvas.js"></script>
+<script src="../js/misc.js"></script>
 <!-- endinject -->
 </body>
 </html>
