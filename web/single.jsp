@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/ionicons.min.css">
     <link rel="stylesheet" href="css/pace.css">
     <link rel="stylesheet" href="css/custom.css">
-
+    <link rel="shortcut icon" href="${pageContext.request.contextPath }/images/caticon.ico" />
     <!-- js -->
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -78,7 +78,7 @@
 
                             <span class="post-date"><a href="#"><time class="entry-date" datetime="${post.post_date}">${post.post_date}</time></a></span>
 
-                            <span class="post-author"><a href="#">Damao</a></span>
+                            <span class="post-author"><a href="#">${post.s_post_author}</a></span>
 
                             <span class="comments-link"><a href="admin/re-edit.do?id=${post.ID}">编辑</a></span>
                         </div>
@@ -103,13 +103,13 @@
                     <h3 class="widget-title">Archives</h3>
                     <ul>
                         <li>
-                            <a href="#">November 2014</a>
+                            <a href="#">November 2018</a>
                         </li>
                         <li>
-                            <a href="#">September 2014</a>
+                            <a href="#">December 2018</a>
                         </li>
                         <li>
-                            <a href="#">January 2013</a>
+                            <a href="#">January 2019</a>
                         </li>
                     </ul>
                 </div>
@@ -136,7 +136,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p class="copyright">&copy;Meow Blog 2018<a href="https://www.lscx.org">露水晨曦博客</a></p>
+                <p class="copyright">&copy;Meow Blog 2018 Powered By WangYue</p>
             </div>
         </div>
     </div>

@@ -35,32 +35,32 @@
                         <div class="brand-logo">
                             <img src="${pageContext.request.contextPath }/images/logo.svg">
                         </div>
-                        <h4>Hello! let's get started</h4>
-                        <h6 class="font-weight-light">Sign in to continue.</h6>
+                        <h4>你好！让我们开始吧！</h4>
+                        <h6 class="font-weight-light">登陆以继续...</h6>
                         <form class="pt-3" action="${pageContext.request.contextPath }/login" method="post">
                             <div class="form-group">
-                                <input name="log" type="username" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
+                                <input name="log" type="username" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="用户名">
                             </div>
                             <div class="form-group">
-                                <input name="pwd" type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                                <input name="pwd" type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="密码">
                             </div>
                             <div class="mt-3">
-                                <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIGN IN</button>
+                                <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" type="submit">登 录</button>
                             </div>
                             <div class="my-2 d-flex justify-content-between align-items-center">
                                 <div class="form-check">
                                     <label class="form-check-label text-muted">
                                         <input type="checkbox" class="form-check-input" checked="checked">
-                                        Keep me signed in
+                                        保持我的登陆状态
                                     </label>
                                 </div>
-                                <a href="#" class="auth-link text-black">Forgot password?</a>
+                                <a href="#" class="auth-link text-black">忘记密码?</a>
                             </div>
                             <div class="text-center mt-4 font-weight-light">
                                 <p class="align-items-center">${states}</p>
                             </div>
                             <div class="text-center mt-4 font-weight-light">
-                                Don't have an account? <a href="register.html" class="text-primary">Create</a>
+                                没有账户? <a href="admin/register.do" class="text-primary">创建</a>
                             </div>
                         </form>
                     </div>

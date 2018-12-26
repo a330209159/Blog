@@ -2,6 +2,8 @@ package org.lscx.utils;
 
 
 
+import org.lscx.pojo.Post;
+
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -12,7 +14,18 @@ import java.util.regex.Pattern;
 public class Tools{
 
 
-
+    public static void processContent(List<Post> posts){
+        for (Post item:posts){
+            String text = Tools.Html2Text(item.getPost_content());
+            if(text.length()>100){
+                item.setPost_content(text.substring(0,100)+"...");
+            }else if (text.length()==0){
+                item.setPost_content("本文可能是由图片组成，请点击下面的按钮来查看全文。");
+            }else{
+                item.setPost_content(text);
+            }
+        }
+    }
 
     //从html中提取纯文本
     public static String Html2Text(String inputString) {

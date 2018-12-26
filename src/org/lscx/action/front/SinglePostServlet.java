@@ -35,6 +35,7 @@ public class SinglePostServlet extends HttpServlet {
         }
         if(post != null && posts != null){
             req.setAttribute("post",post);
+            System.out.println(post.getS_post_author());
             req.setAttribute("posts",posts);
             req.getRequestDispatcher("single.jsp").forward(req,resp);
         }else{

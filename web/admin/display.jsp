@@ -39,7 +39,7 @@
                         </div>
                         <div class="nav-profile-text d-flex flex-column">
                             <span class="font-weight-bold mb-2">${user.user_login}</span>
-                            <span class="text-secondary text-small">Project Manager</span>
+                            <span class="text-secondary text-small">管理员</span>
                         </div>
                         <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
                     </a>
@@ -150,7 +150,7 @@
                                             </td>
                                             <td>
                                                 <a href="re-edit.do?id=${item.ID}" class="btn btn-gradient-primary btn-rounded btn-sm" >修改</a>
-                                                <a href="delete.do?id=${item.ID}" class="btn btn-gradient-danger btn-rounded btn-sm" >删除</a>
+                                                <a href="delete.do?id=${item.ID}" class="btn btn-gradient-danger btn-rounded btn-sm" onClick="delete_confirm">删除</a>
                                             </td>
 
                                         </tr>
@@ -164,13 +164,7 @@
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:../../partials/_footer.html -->
-            <footer class="footer">
-                <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="#" target="_blank">Bootstrap Dash</a>. All rights reserved.</span>
-                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
-              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span>
-                </div>
-            </footer>
+            <jsp:include page="common/footer.jsp"/>
             <!-- partial -->
         </div>
         <!-- main-panel ends -->
@@ -182,6 +176,16 @@
 <script src="../vendors/js/vendor.bundle.base.js"></script>
 <script src="../vendors/js/vendor.bundle.addons.js"></script>
 <!-- endinject -->
+<script>
+    function delete_confirm(e)
+    {
+        if (event.srcElement.outerText == "删除")
+        {
+            event.returnValue = confirm("删除是不可恢复的，你确认要删除吗？");
+        }
+    }
+    document.onclick = delete_confirm;
+</script>
 <!-- inject:js -->
 <script src="../js/off-canvas.js"></script>
 <script src="../js/misc.js"></script>

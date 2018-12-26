@@ -25,7 +25,7 @@ public class PostDaoImpl implements PostDao {
         boolean flag = false;
         String sql = "insert into posts(post_author,post_date,post_title,post_content,post_name) " +
                 "values(?,?,?,?,?)";
-        SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         pstmt = this.conn.prepareStatement(sql);
         pstmt.setInt(1,post.getPost_author());
         pstmt.setString(2,fmt.format(new Date()));
@@ -63,8 +63,9 @@ public class PostDaoImpl implements PostDao {
     @Override
     public Post queryPostByID(int ID) throws Exception {
         Post post;
-        String sql = "select * from posts " +
-                "where ID = ?";
+        String sql = "select posts.ID,post_author,post_date,post_title,post_content,post_name,user_nickname " +
+                "from posts,users " +
+                "where posts.post_author = users.ID and posts.ID = ?";
         this.pstmt = this.conn.prepareStatement(sql);
         pstmt.setInt(1,ID);
         ResultSet rs = this.pstmt.executeQuery();
@@ -127,6 +128,7 @@ public class PostDaoImpl implements PostDao {
             post.setPost_title(rs.getString(4));
             post.setPost_content(rs.getString(5));
             post.setPost_name(rs.getString(6));
+            post.setS_post_author(rs.getString(7));
         }
         return post;
     }

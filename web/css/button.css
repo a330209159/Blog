@@ -1,0 +1,21 @@
+.btn_me {
+    font-size: 1.2rem;
+    line-height: 2;
+    font-family: "微软雅黑 Light", sans-serif;
+    /* Buttons with only icons */
+    /* Buttons with icon and text */
+}
+
+.btn-inverse-dark {
+    background-color: rgba(62, 75, 91, 0.2);
+    background-image: none;
+    border-color: rgba(62, 75, 91, 0);
+}
+
+.btn-fw {
+    min-width: 200px;
+    display:block;margin:0 auto
+}
+.my-margin{
+    margin-top: 30px;
+}

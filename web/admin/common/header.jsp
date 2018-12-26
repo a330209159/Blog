@@ -20,7 +20,7 @@
                     <div class="input-group-prepend bg-transparent">
                         <i class="input-group-text border-0 mdi mdi-magnify"></i>
                     </div>
-                    <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
+                    <input type="text" class="form-control bg-transparent border-0" placeholder="搜索文章">
                 </div>
             </form>
         </div>
@@ -38,12 +38,12 @@
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                     <a class="dropdown-item" href="#">
                         <i class="mdi mdi-cached mr-2 text-success"></i>
-                        Activity Log
+                        活动日志
                     </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="../signout">
                         <i class="mdi mdi-logout mr-2 text-primary"></i>
-                        Signout
+                        注销
                     </a>
                 </div>
             </li>
@@ -58,16 +58,16 @@
                     <span class="count-symbol bg-warning"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-                    <h6 class="p-3 mb-0">Messages</h6>
+                    <h6 class="p-3 mb-0">消息</h6>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
                             <img src="../images/faces/face4.jpg" alt="image" class="profile-pic">
                         </div>
                         <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
+                            <h6 class="preview-subject ellipsis mb-1 font-weight-normal">黑大爷给你发了一条信息</h6>
                             <p class="text-gray mb-0">
-                                1 Minutes ago
+                                1分钟之前
                             </p>
                         </div>
                     </a>
@@ -77,9 +77,9 @@
                             <img src="../images/faces/face2.jpg" alt="image" class="profile-pic">
                         </div>
                         <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
+                            <h6 class="preview-subject ellipsis mb-1 font-weight-normal">柯西给你发了一条信息</h6>
                             <p class="text-gray mb-0">
-                                15 Minutes ago
+                                15分钟之前
                             </p>
                         </div>
                     </a>
@@ -89,14 +89,14 @@
                             <img src="../images/faces/face3.jpg" alt="image" class="profile-pic">
                         </div>
                         <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
+                            <h6 class="preview-subject ellipsis mb-1 font-weight-normal">用户头像已更新</h6>
                             <p class="text-gray mb-0">
-                                18 Minutes ago
+                                18分钟之前
                             </p>
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <h6 class="p-3 mb-0 text-center">4 new messages</h6>
+                    <h6 class="p-3 mb-0 text-center">3条新信息</h6>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -105,7 +105,7 @@
                     <span class="count-symbol bg-danger"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                    <h6 class="p-3 mb-0">Notifications</h6>
+                    <h6 class="p-3 mb-0">提醒</h6>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
@@ -114,9 +114,9 @@
                             </div>
                         </div>
                         <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
+                            <h6 class="preview-subject font-weight-normal mb-1">今日事件</h6>
                             <p class="text-gray ellipsis mb-0">
-                                Just a reminder that you have an event today
+                                你今天还有未完成的事项。
                             </p>
                         </div>
                     </a>
@@ -128,9 +128,9 @@
                             </div>
                         </div>
                         <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
+                            <h6 class="preview-subject font-weight-normal mb-1">设置</h6>
                             <p class="text-gray ellipsis mb-0">
-                                Update dashboard
+                                更新仪表盘
                             </p>
                         </div>
                     </a>
@@ -142,18 +142,18 @@
                             </div>
                         </div>
                         <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
+                            <h6 class="preview-subject font-weight-normal mb-1">创建管理员账号</h6>
                             <p class="text-gray ellipsis mb-0">
-                                New admin wow!
+                                新的管理员账号已经创建。
                             </p>
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+                    <h6 class="p-3 mb-0 text-center">查看所有的通知</h6>
                 </div>
             </li>
             <li class="nav-item nav-logout d-none d-lg-block">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/signout">
                     <i class="mdi mdi-power"></i>
                 </a>
             </li>
