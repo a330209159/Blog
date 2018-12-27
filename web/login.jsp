@@ -60,7 +60,9 @@
                                 <p class="align-items-center">${states}</p>
                             </div>
                             <div class="text-center mt-4 font-weight-light">
-                                没有账户? <a href="admin/register.do" class="text-primary">创建</a>
+                                没有账户? <a href="${pageContext.request.contextPath }/admin/register.do" class="text-primary">创建</a> |
+                                <a href="${pageContext.request.contextPath }/index.do" class="text-primary">回到首页</a>
+
                             </div>
                         </form>
                     </div>

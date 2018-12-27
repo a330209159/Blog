@@ -26,6 +26,28 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pace.min.js"></script>
     <script src="js/modernizr.custom.js"></script>
+    <!-- syntax highlight -->
+    <script type="text/javascript" src="js/shCore.js"></script>
+    <link rel="stylesheet" href="css/shCoreDefault.css">
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+    <script>
+        $(function(){
+            SyntaxHighlighter.highlight();
+            $("table.syntaxhighlighter").each(function () {
+                if (!$(this).hasClass("nogutter")) {
+                    var $gutter = $($(this).find(".gutter")[0]);
+                    var $codeLines = $($(this).find(".code .line"));
+                    $gutter.find(".line").each(function (i) {
+                        $(this).height($($codeLines[i]).height());
+                        $($codeLines[i]).height($($codeLines[i]).height());
+                    });
+                }
+            });
+        });
+    </script>
+
 </head>
 <body id="single">
 <div class="container">

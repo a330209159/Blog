@@ -153,7 +153,7 @@
                 </div>
             </li>
             <li class="nav-item nav-logout d-none d-lg-block">
-                <a class="nav-link" href="/signout">
+                <a class="nav-link" href="../signout">
                     <i class="mdi mdi-power"></i>
                 </a>
             </li>
