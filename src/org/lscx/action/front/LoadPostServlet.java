@@ -39,7 +39,6 @@ public class LoadPostServlet extends HttpServlet {
         Tools.processContent(posts);
         for(int i=pageNum*4;i<(pageNum*4+4)&& i<posts.size();i++){
             datePosts.add(posts.get(i));
-            System.out.println(posts.get(i).getPost_title());
         }
         Gson gson = new Gson();
         String json = gson.toJson(datePosts);
