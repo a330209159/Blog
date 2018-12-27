@@ -30,7 +30,6 @@ public class ReEditServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(id);
         if (post != null) {
             req.setAttribute("post", post);
             req.getRequestDispatcher("update.jsp").forward(req,resp);

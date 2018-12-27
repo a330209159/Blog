@@ -128,7 +128,10 @@ public class PostDaoImpl implements PostDao {
             post.setPost_title(rs.getString(4));
             post.setPost_content(rs.getString(5));
             post.setPost_name(rs.getString(6));
-            post.setS_post_author(rs.getString(7));
+            try {
+                post.setS_post_author(rs.getString(7));
+            } catch (Exception e){
+            }
         }
         return post;
     }
