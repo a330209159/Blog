@@ -93,8 +93,8 @@
 <script src="../vendors/js/vendor.bundle.addons.js"></script>
 <!-- endinject -->
 <!-- inject:js -->
-<script src="../../js/off-canvas.js"></script>
-<script src="../../js/misc.js"></script>
+<script src="../js/off-canvas.js"></script>
+<script src="../js/misc.js"></script>
 <!-- endinject -->
 </body>
 </html>

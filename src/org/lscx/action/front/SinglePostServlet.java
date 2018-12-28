@@ -33,7 +33,7 @@ public class SinglePostServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(post != null && posts != null){
+        if(post.getPost_name() != null && posts != null){
             req.setAttribute("post",post);
             req.setAttribute("posts",posts);
             req.getRequestDispatcher("single.jsp").forward(req,resp);

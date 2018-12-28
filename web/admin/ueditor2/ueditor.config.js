@@ -426,7 +426,7 @@
 			u:      [],
 			ul:     ['class', 'style'],
 			video:  ['autoplay', 'controls', 'loop', 'preload', 'src', 'height', 'width', 'class', 'style'],
-            iframe: ['frameborder','src','width','height']
+            iframe: ['frameborder','src','width','height','onload','id']
 		}
     };
 

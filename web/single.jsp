@@ -33,6 +33,7 @@
         SyntaxHighlighter.all();
     </script>
     <script>
+        //文章代码显示代码行号计算js
         $(function(){
             SyntaxHighlighter.highlight();
             $("table.syntaxhighlighter").each(function () {
@@ -46,7 +47,14 @@
                 }
             });
         });
+        //iframe窗口大小自动适配js
+        function changeFrameHeight(){
+            var ifm= document.getElementById("iframepage");
+            ifm.height = document.documentElement.clientHeight-420;
+        }
     </script>
+
+
 
 </head>
 <body id="single">
