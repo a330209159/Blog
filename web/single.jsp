@@ -20,12 +20,18 @@
     <link rel="stylesheet" href="css/ionicons.min.css">
     <link rel="stylesheet" href="css/pace.css">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/comments.css">
     <link rel="shortcut icon" href="${pageContext.request.contextPath }/images/caticon.ico" />
     <!-- js -->
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pace.min.js"></script>
     <script src="js/modernizr.custom.js"></script>
+    <!-- commnets script -->
+    <!--Leancloud 操作库:-->
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--Valine 的核心代码库:-->
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <!-- syntax highlight -->
     <script type="text/javascript" src="js/shCore.js"></script>
     <link rel="stylesheet" href="css/shCoreDefault.css">
@@ -50,7 +56,8 @@
         //iframe窗口大小自动适配js
         function changeFrameHeight(){
             var ifm= document.getElementById("iframepage");
-            ifm.height = document.documentElement.clientHeight-420;
+            ifm.height = document.documentElement.clientWidth/1.7777;
+            alert(ifm.height)
         }
     </script>
 
@@ -116,6 +123,19 @@
                     <div class="entry-content clearfix">
                         ${post.post_content}
                     </div>
+                    <div class="demo_line"><span>发表评论</span></div>
+                    <div class="comment" style="margin:10px 0px 15px 0px;"></div>
+                    <script>
+                        new Valine({
+                            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+                            av: AV,
+                            el: '.comment', //
+                            app_id: '4lE0YdARoHwYgi0d4eH7tKc0-gzGzoHsz', // 这里填写上面得到的APP ID
+                            app_key: 'vnvluVgY6PUr7GdqKpYtFTmw', // 这里填写上面得到的APP KEY
+                            placeholder: '开始评论...', // [v1.0.7 new]留言框占位提示文字
+                            path:'${post.ID}'
+                        });
+                    </script>
                 </article>
             </main>
             <aside class="col-md-4">

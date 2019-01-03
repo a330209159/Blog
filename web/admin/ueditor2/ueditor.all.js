@@ -15156,6 +15156,7 @@ UE.plugins['list'] = function () {
     });
     //进入编辑器的li要套p标签
     me.addInputRule(function(root){
+        /*
         utils.each(root.getNodesByTagName('li'),function(li){
             var tmpP = UE.uNode.createElement('p');
             for(var i= 0,ci;ci=li.children[i];){
@@ -15186,7 +15187,7 @@ UE.plugins['list'] = function () {
             if(lastChild && lastChild.type == 'text' && /^\s*$/.test(lastChild.data)){
                 p.removeChild(lastChild)
             }
-        });
+        }); */
         if(me.options.autoTransWordToList){
             var orderlisttype = {
                     'num1':/^\d+\)/,
