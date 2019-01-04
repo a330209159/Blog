@@ -29,7 +29,7 @@ public class SinglePostServlet extends HttpServlet {
         int id = Integer.valueOf(req.getParameter("id"));
         try {
             post = DAOFactory.getPostDaoInstance().queryPostByID(id);
-            posts = DAOFactory.getPostDaoInstance().showAllPosts();
+            posts = DAOFactory.getPostDaoInstance().queryRecentPostsTitle(7);
         } catch (Exception e) {
             e.printStackTrace();
         }

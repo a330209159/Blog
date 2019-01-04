@@ -10,5 +10,6 @@ public interface PostDao {
     boolean updatePostByID(Post post,int ID) throws Exception;
     Post queryPostByPost_title(String post_title) throws Exception;
     boolean deletePostByID(int ID) throws Exception;
-
+    List<Post> limitQueryPostsByPage(int pageNum) throws Exception;
+    List<Post> queryRecentPostsTitle(int numbers) throws Exception;
 }

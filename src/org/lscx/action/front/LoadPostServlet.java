@@ -29,19 +29,16 @@ public class LoadPostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int pageNum = Integer.valueOf(req.getParameter("pagenum"));
         List<Post> posts=null;
-        List<Post> datePosts = new ArrayList<>();
 
         try {
-            posts = DAOFactory.getPostDaoInstance().showAllPosts();
+            posts = DAOFactory.getPostDaoInstance().limitQueryPostsByPage(pageNum+1);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         Tools.processContent(posts);
-        for(int i=pageNum*4;i<(pageNum*4+4)&& i<posts.size();i++){
-            datePosts.add(posts.get(i));
-        }
         Gson gson = new Gson();
-        String json = gson.toJson(datePosts);
+        String json = gson.toJson(posts);
         resp.getWriter().print(json);
 
 

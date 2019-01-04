@@ -25,15 +25,17 @@ public class IndexDisplayServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Post> posts = null;
-
+        List<Post> recentPosts = null;
         try {
-            posts = DAOFactory.getPostDaoInstance().showAllPosts();
+            posts = DAOFactory.getPostDaoInstance().limitQueryPostsByPage(1);
+            recentPosts = DAOFactory.getPostDaoInstance().queryRecentPostsTitle(7);
         } catch (Exception e) {
             e.printStackTrace();
         }
         if(posts != null){
             Tools.processContent(posts);
             req.setAttribute("posts",posts);
+            req.setAttribute("recentposts",recentPosts);
         }
         req.getRequestDispatcher("demo.jsp").forward(req,resp);
     }

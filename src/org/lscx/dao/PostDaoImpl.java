@@ -41,22 +41,12 @@ public class PostDaoImpl implements PostDao {
 
     @Override
     public List<Post> showAllPosts() throws Exception {
-        List<Post> posts = new ArrayList<>();
+        List<Post> posts;
         String sql="select posts.ID,post_author,post_date,post_title,post_content,post_name,user_nickname " +
                 "from posts,users where posts.post_author = users.ID order by posts.ID desc";
         pstmt = this.conn.prepareStatement(sql);
         ResultSet rs = this.pstmt.executeQuery();
-        while (rs.next()){
-            Post post = new Post();
-            post.setID(rs.getInt(1));
-            post.setPost_author(rs.getInt(2));
-            post.setPost_date(rs.getString(3));
-            post.setPost_title(rs.getString(4));
-            post.setPost_content(rs.getString(5));
-            post.setPost_name(rs.getString(6));
-            post.setS_post_author(rs.getString(7));
-            posts.add(post);
-        }
+        posts = rs2Posts(rs);
         return posts;
     }
 
@@ -116,6 +106,38 @@ public class PostDaoImpl implements PostDao {
         }
         return flag;
     }
+    public List<Post> limitQueryPostsByPage(int pageNum) throws Exception {
+        List<Post> posts;
+        int postsPerPage = 4;
+        int startPageNum = (pageNum-1)*postsPerPage;
+        String sql = "select posts.ID,post_author, " +
+                "post_date,post_title,post_content, " +
+                "post_name,user_nickname from posts,users " +
+                "where posts.post_author = users.ID order by posts.ID desc limit ?,?";
+        pstmt = this.conn.prepareStatement(sql);
+        pstmt.setInt(1,startPageNum);
+        pstmt.setInt(2,postsPerPage);
+        ResultSet rs = this.pstmt.executeQuery();
+        posts = rs2Posts(rs);
+        return posts;
+
+    }
+
+    @Override
+    public List<Post> queryRecentPostsTitle(int numbers) throws Exception {
+        List<Post> posts = new ArrayList<>();
+        String sql = "select ID,post_title from posts order by ID desc limit 0,?";
+        pstmt = this.conn.prepareStatement(sql);
+        pstmt.setInt(1,numbers);
+        ResultSet rs = this.pstmt.executeQuery();
+        while (rs.next()){
+            Post post = new Post();
+            post.setID(rs.getInt(1));
+            post.setPost_title(rs.getString(2));
+            posts.add(post);
+        }
+        return posts;
+    }
 
 
     private Post rs2Post(ResultSet rs) throws SQLException {
@@ -134,6 +156,21 @@ public class PostDaoImpl implements PostDao {
             }
         }
         return post;
+    }
+    private List<Post> rs2Posts(ResultSet rs) throws SQLException{
+        List<Post> posts = new ArrayList<>();
+        while (rs.next()){
+            Post post = new Post();
+            post.setID(rs.getInt(1));
+            post.setPost_author(rs.getInt(2));
+            post.setPost_date(rs.getString(3));
+            post.setPost_title(rs.getString(4));
+            post.setPost_content(rs.getString(5));
+            post.setPost_name(rs.getString(6));
+            post.setS_post_author(rs.getString(7));
+            posts.add(post);
+        }
+        return posts;
     }
 
 }

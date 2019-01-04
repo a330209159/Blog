@@ -105,4 +105,34 @@ public class PostService implements PostDao {
         }
         return flag;
     }
+
+    @Override
+    public List<Post> limitQueryPostsByPage(int pageNum) throws Exception {
+        List<Post> posts = null;
+        try{
+            if(true){
+                posts = dao.limitQueryPostsByPage(pageNum);
+            }
+        }catch (Exception e){
+            throw e;
+        }finally {
+            dbconn.close();
+        }
+        return posts;
+    }
+
+    @Override
+    public List<Post> queryRecentPostsTitle(int numbers) throws Exception {
+        List<Post> posts = null;
+        try{
+            if(true){
+                posts = dao.queryRecentPostsTitle(numbers);
+            }
+        }catch (Exception e){
+            throw e;
+        }finally {
+            dbconn.close();
+        }
+        return posts;
+    }
 }

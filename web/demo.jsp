@@ -156,7 +156,7 @@
           <div class="widget widget-recent-posts">
             <h3 class="widget-title">Recent Posts</h3>
             <ul>
-              <c:forEach items="${posts}" var="item" begin="0" end="6">
+              <c:forEach items="${recentposts}" var="item">
               <li>
                 <a href="single?id=${item.ID}">${item.post_title}</a>
               </li>
